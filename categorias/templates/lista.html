@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Categorias — MiniStore{% endblock %}
+
+{% block content %}
+<div class="header-acao">
+    <h2>Categorias</h2>
+    <a href="{{ url_for('categorias.nova') }}" class="btn btn-primary">+ Nova Categoria</a>
+</div>
+
+<table class="tabela">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nome }}</td>
+            <td>{{ categoria.descricao or '—' }}</td>
+            <td class="acoes">
+                <a href="{{ url_for('categorias.editar', id=categoria.id) }}" class="btn btn-sm btn-edit">Editar</a>
+                <form action="{{ url_for('categorias.excluir', id=categoria.id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir esta categoria?');">
+                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" style="text-align: center; color: #888;">Nenhuma categoria cadastrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
