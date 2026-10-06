@@ -11,7 +11,7 @@ def listar():
     categorias = cursor.fetchall()
     cursor.close()
     conn.close()
-    return render_template('lista.html', categorias=categorias)
+    return render_template('listar_categorias.html', categorias=categorias)
 
 @categorias_bp.route('/categorias/nova', methods=['GET', 'POST'])
 def nova():
@@ -28,7 +28,7 @@ def nova():
         cursor.close()
         conn.close()
         return redirect(url_for('categorias.listar'))
-    return render_template('form.html', categoria=None)
+    return render_template('form_categoria.html', categoria=None)
 
 @categorias_bp.route('/categorias/<int:id>/editar', methods=['GET', 'POST'])
 def editar(id):
@@ -50,7 +50,7 @@ def editar(id):
     categoria = cursor.fetchone()
     cursor.close()
     conn.close()
-    return render_template('form.html', categoria=categoria)
+    return render_template('form_categoria.html', categoria=categoria)
 
 @categorias_bp.route('/categorias/<int:id>/excluir', methods=['POST'])
 def excluir(id):
