@@ -66,9 +66,9 @@ ministore/
 │   └── js/main.js      # javascript global
 ├── dashboard/          # módulo de dashboard (fornecido)
 ├── clientes/           # módulo de clientes (fornecido)
-├── categorias/         # módulo a implementar
-├── produtos/           # módulo a implementar
-└── vendas/             # módulo a implementar
+├── categorias/         # módulo de categorias (implementado)
+├── produtos/           # módulo de produtos (implementado)
+└── vendas/             # módulo de vendas (implementado)
 ```
 
 ## Módulos a implementar
